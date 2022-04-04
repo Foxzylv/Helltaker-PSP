@@ -1,5 +1,7 @@
 #include "movement.h"
 
+int movecount = 23;
+
 /* Checks if character on pos can move to new pos
  * @param new_pos is a pointer to the position that can be walked to,
  *    only filled if "not-NULL"
@@ -43,6 +45,8 @@ checkIfWalkable(struct Position pos, struct Position *new_pos, enum WalkDirectio
   switch(piece) {
     case eGround:
       isWalkable = true;
+	  if(cur_piece == ePlayer)
+		  movecount--;
       break;
     case eEnemy:
       // Kick the enemy but stand in place
@@ -56,6 +60,8 @@ checkIfWalkable(struct Position pos, struct Position *new_pos, enum WalkDirectio
         // Set enemy to new pos
         field.pieces[enemy_pos_new.y][enemy_pos_new.x] = eEnemy;
       }
+	  if(cur_piece == ePlayer)
+		  movecount--;
       break;
     // TODO: Do something similar with the rock
     case eRock:
@@ -65,6 +71,8 @@ checkIfWalkable(struct Position pos, struct Position *new_pos, enum WalkDirectio
         field.pieces[target.y][target.x] = eGround;
         field.pieces[rock_pos.y][rock_pos.x] = eRock;
       }
+	  if(cur_piece == ePlayer)
+		  movecount--;
       break;
     default:
       isWalkable = false;
@@ -87,3 +95,4 @@ tryWalk(enum WalkDirection direction)
     player = target_pos;
   }
 }
+
