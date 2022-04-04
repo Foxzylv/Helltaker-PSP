@@ -3,6 +3,7 @@
 
 #include "controls.h"
 #include "movement.h"
+#include "field.h"
 
 // Only used once inside controls.cpp, so it's safe to make it static
 // (will make it invisible for other files)
@@ -21,6 +22,7 @@ void
 execControls()
 {
     sceCtrlReadBufferPositive(&pad, 1);
+    //TO DO: If movecount = 0 die()
 
     if (pad.Buttons != 0) {
       if (buttonRecentlyPressed(PSP_CTRL_SQUARE)) {
@@ -68,3 +70,4 @@ execControls()
     }
     pad_old = pad;
 }
+
