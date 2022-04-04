@@ -1,5 +1,5 @@
 TARGET = template
-OBJS = src/main.o src/field.o src/movement.o src/controls.o
+OBJS = source/main.o source/field.o source/movement.o source/controls.o
 DEPENDS = $(OBJS:.o=.d)
 
 BUILD_PRX=1
