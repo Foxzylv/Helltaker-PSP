@@ -1,19 +1,21 @@
 #include <pspdebug.h>
 #include <cstddef>
+#include <sstream>
 
 #include "field.h"
+#include "movement.h"
 
-struct Position player = { .x = 5, .y = 3 };
+struct Position player = { .x = 5, .y = 0 };
 
 struct Field field = { .pieces = {
-    {eWall,    eWall,    eWall,    eGoal,    eGround,   eWall},
-    {eWall,    eWall,    eWall,    eGround,  eLock,     eWall},
-    {eGround,  eLock,    eWall,    eRock,    eRock,     eRock},
+    {eGround,    eWall,    eWall,    eWall,    eGround,   eGround},
+    {eWall,    eGround,    eGround,    eEnemy,  eGround,     eGround},
+    {eWall,  eGround,    eEnemy,    eGround,    eEnemy,     eWall},
     
-    {eEnemy,   eRock,    eGround,  eEnemy,   eRock,     eGround},
-    {eGround,  eWall,    eEnemy,   eGround,  eGround,   eGround},
-    {eGround,  eWall,    eWall,    eGround,  eWall,     eWall},
-    {eGround,  eGround,  eGround,  eGround,  eWall,     eWall} 
+    {eGround,   eGround,    eWall,  eWall,   eWall,     eWall},
+    {eGround,  eRock,    eGround,   eGround,  eRock,   eGround},
+    {eGround,  eRock,    eGround,    eRock,  eGround,     eGround},
+    {eWall,  eWall,  eWall,  eWall,  eWall,     eWall} 
   }
 };
 
@@ -82,4 +84,9 @@ printField()
 
   pspDebugScreenSetXY(X_OFFSET + player.x, Y_OFFSET + player.y);
   pspDebugScreenPuts(player_symbol);
+ 
+  std::ostringstream ss;
+  ss << movecount;
+  pspDebugScreenSetXY(X_OFFSET - 1, Y_OFFSET + Y_SIZE + 2); // Move 2 below the max size of the field
+  pspDebugScreenPuts(ss.str().c_str());
 } 
