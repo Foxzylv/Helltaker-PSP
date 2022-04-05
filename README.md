@@ -1,7 +1,7 @@
 # Helltaker
 
 This is a port of the free game Helltaker in C++/C
-With help from https://github.com/Fighter19
+With help from: https://github.com/Fighter19
 
 Original Steam Page : https://store.steampowered.com/app/1289310/Helltaker/
 
