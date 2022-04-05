@@ -14,7 +14,7 @@ LDFLAGS =
 
 EXTRA_TARGETS = EBOOT.PBP
 PSP_EBOOT_TITLE = Helltaker
-PSP_EBOOT_ICON = ICON0.Png
+PSP_EBOOT_ICON = ICON0.png
 PSP_EBOOT_PIC1 = PIC1.png
 
 PSPSDK=$(shell psp-config --pspsdk-path)
