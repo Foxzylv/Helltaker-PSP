@@ -1,0 +1,7 @@
+# Ignore build artifacts
+*.PBP
+*.o
+*.a
+*.d
+*.elf
+*.prx
