@@ -2,6 +2,13 @@
 
 int movecount = 23;
 
+/* int die
+   {
+    if (movecount = 0)
+   {
+    die function goes here. When die funcation is called upon it will reset all the locations of objects, and set int movecount to equal 23 again.
+   }
+
 /* Checks if character on pos can move to new pos
  * @param new_pos is a pointer to the position that can be walked to,
  *    only filled if "not-NULL"
