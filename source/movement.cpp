@@ -2,11 +2,11 @@
 
 int movecount = 23;
 
-/* int die
+/* int die()
    {
-    if (movecount = 0)
+    if (movecount == 0)
    {
-    die function goes here. When die funcation is called upon it will reset all the locations of objects, and set int movecount to equal 23 again.
+    die function goes here. When die funcation is called upon it will reset all the locations of objects, and set int movecount to equal 23 again or whatever number it was originally.
    }
 
 /* Checks if character on pos can move to new pos
